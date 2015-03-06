@@ -1,14 +1,14 @@
 // %Tag(FULLTEXT)%
 #include "ros/ros.h"
-#include "std_msgs/Int8.h"
+#include "std_msgs/Int64.h"
 
 // %Tag(CALLBACK)%
-void chatter1Callback(const std_msgs::Int8::ConstPtr& msg)
+void chatter1Callback(const std_msgs::Int64::ConstPtr& msg)
 {
   ROS_INFO("Number: %d", msg->data);
 }
 
-void chatter2Callback(const std_msgs::Int8::ConstPtr& msg)
+void chatter2Callback(const std_msgs::Int64::ConstPtr& msg)
 {
   ROS_INFO("Its square: %d", msg->data);
 }

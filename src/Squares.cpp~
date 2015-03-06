@@ -1,13 +1,13 @@
 #include "ros/ros.h"
-#include "std_msgs/Int8.h"
+#include "std_msgs/Int64.h"
 
 #include <sstream>
 
- std_msgs::Int8 my_msg;
+ std_msgs::Int64 my_msg;
 
  ros::Publisher chatter_pub;
 
-void numbersCallback(const std_msgs::Int8::ConstPtr& msg)
+void numbersCallback(const std_msgs::Int64::ConstPtr& msg)
 { 
   if(ros::ok())
   {
@@ -26,8 +26,8 @@ int main(int argc, char **argv)
  
   ros::NodeHandle n;
  
-  ros::Subscriber sub = n.subscribe<std_msgs::Int8>("topic_numbers", 1000, numbersCallback);
-  chatter_pub = n.advertise<std_msgs::Int8>("topic_squares", 1000);
+  ros::Subscriber sub = n.subscribe<std_msgs::Int64>("topic_numbers", 1000, numbersCallback);
+  chatter_pub = n.advertise<std_msgs::Int64>("topic_squares", 1000);
 
   ros::spin();
 

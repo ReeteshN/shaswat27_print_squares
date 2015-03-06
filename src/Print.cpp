@@ -1,19 +1,18 @@
-// %Tag(FULLTEXT)%
 #include "ros/ros.h"
 #include "std_msgs/Int64.h"
 
-// %Tag(CALLBACK)%
+// Callback for "topic_numbers"
 void chatter1Callback(const std_msgs::Int64::ConstPtr& msg)
 {
   ROS_INFO("Number: %d", msg->data);
 }
-
+// Callbackk for "topic_squares"
 void chatter2Callback(const std_msgs::Int64::ConstPtr& msg)
 {
   ROS_INFO("Its square: %d", msg->data);
 }
 
-// %EndTag(CALLBACK)%
+
 
 int main(int argc, char **argv)
 {
@@ -22,15 +21,11 @@ int main(int argc, char **argv)
 
   ros::NodeHandle n;
   
-// %Tag(SUBSCRIBER)%
+// Subscribe to "topic_numbers" and "topic_squares"
   ros::Subscriber sub1 = n.subscribe("topic_numbers", 1000, chatter1Callback);
   ros::Subscriber sub2 = n.subscribe("topic_squares", 1000, chatter2Callback);
-// %EndTag(SUBSCRIBER)%
 
-// %Tag(SPIN)%
   ros::spin();
-// %EndTag(SPIN)%
 
   return 0;
 }
-// %EndTag(FULLTEXT)%
